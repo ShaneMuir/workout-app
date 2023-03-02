@@ -2,10 +2,31 @@
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
 // Normalize
-@import "normalize.css";
+@import 'normalize.css';
 
-// Variables
+// Bootstrap overrides
+@import 'bootstrap/scss/functions';
+
+// Variables overrides
 @import 'variables';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// Bootstrap files
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/offcanvas';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/utilities/api';
