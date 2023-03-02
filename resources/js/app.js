@@ -72,3 +72,51 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 });
+
+(() => {
+    'use strict'
+
+    const storedTheme = localStorage.getItem('theme')
+    const sunBtn = document.getElementById('sunBtn')
+    const moonBtn = document.getElementById('moonBtn')
+
+    const getPreferredTheme = () => {
+        if (storedTheme) {
+            return storedTheme
+        }
+
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+
+    if (getPreferredTheme() === 'dark') {
+        moonBtn.classList.add('active')
+    }
+
+    if (getPreferredTheme() === 'light') {
+        sunBtn.classList.add('active')
+    }
+
+    if (!storedTheme) {
+        localStorage.setItem('theme', getPreferredTheme())
+    }
+
+    document.body.setAttribute('data-bs-theme', storedTheme || getPreferredTheme())
+
+    sunBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        sunBtn.classList.add('active')
+        sunBtn.classList.add('text-white')
+        moonBtn.classList.remove('active')
+        document.body.setAttribute('data-bs-theme', 'light')
+        localStorage.setItem('theme', 'light')
+    })
+
+    moonBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        moonBtn.classList.add('active')
+        sunBtn.classList.remove('active')
+        sunBtn.classList.remove('text-white')
+        document.body.setAttribute('data-bs-theme', 'dark')
+        localStorage.setItem('theme', 'dark')
+    })
+})()

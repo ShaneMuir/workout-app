@@ -17,7 +17,18 @@
                 @endif
             </a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="profileSidebar" aria-labelledby="profileSidebar">
-                <div class="offcanvas-header justify-content-end">
+                <div class="offcanvas-header justify-content-between">
+                    <div>
+                        <button id="sunBtn" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center">
+                            <img class="bi me-2" width="16" height="16" aria-label="Sun Icon" src="{{ asset('assets/sun.svg') }}" alt="Sun Icon">
+                            Light
+                        </button>
+                        <button id="moonBtn" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center">
+                            <img class="bi me-2" width="16" height="16" aria-label="Sun Icon" src="{{ asset('assets/moon.svg') }}" alt="Sun Icon">
+                            Dark
+                        </button>
+                    </div>
+
                     <button type="button" class="btn-close fs-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
