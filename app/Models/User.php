@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -41,4 +42,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the user's avatar.
+     *
+     * @return string
+     */
+    public function getAvatarUrl(): string
+    {
+        if ($this->avatar) {
+            return asset('avatars/' . $this->avatar);
+        }
+        return asset('assets/hacker.png');
+    }
+
 }

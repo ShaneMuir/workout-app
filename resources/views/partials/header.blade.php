@@ -9,12 +9,16 @@
             <!-- ./site logo -->
 
             <!-- profile sidebar -->
-            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#profileSidebar" aria-controls="profileSidebar" class="d-flex align-items-center text-dark text-decoration-none">
+            <a href data-bs-toggle="offcanvas" data-bs-target="#profileSidebar" aria-controls="profileSidebar" class="d-flex align-items-center text-dark text-decoration-none">
+                @if( auth()->user() )
+                <img src="{{ $user->getAvatarUrl() }}" alt="User Avatar" width="40" height="40" class="rounded-circle">
+                @else
                 <img src="{{ asset('assets/hacker.png') }}" alt="mdo" width="40" height="40" class="rounded-circle">
+                @endif
             </a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="profileSidebar" aria-labelledby="profileSidebar">
                 <div class="offcanvas-header justify-content-end">
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close fs-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="nav flex-column">
@@ -32,10 +36,12 @@
                             @endif
 
                         @else
-                            <!-- this will have a route wrapper once the profile route and page is underway for now it does nothing -->
+
+                            @if(Route::has('profile'))
                             <li class="nav-item">
-                                <a class="d-grid btn btn-outline-primary mb-2" href="#">{{ __('Profile') }}</a>
+                                <a class="d-grid btn btn-outline-primary mb-2" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                             </li>
+                            @endif
 
                             <li class="nav-item">
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -47,6 +53,8 @@
                             </li>
                         @endguest
                     </ul>
+
+
                 </div>
             </div>
             <!-- ./profile sidebar -->

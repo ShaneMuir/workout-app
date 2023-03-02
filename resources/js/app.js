@@ -37,3 +37,38 @@ import './bootstrap';
  */
 
 // app.mount('#app');
+
+window.addEventListener('DOMContentLoaded', () => {
+    const editProfileBtn = document.getElementById('editProfileBtn')
+    const dontEditProfileBtn = document.getElementById('dontEditProfileBtn')
+    const nameField = document.getElementById('name')
+    const emailField = document.getElementById('email')
+    const avatarField = document.getElementById('avatar')
+    const saveBtn = document.getElementById('saveBtn')
+
+    if (editProfileBtn) {
+        editProfileBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            dontEditProfileBtn.classList.toggle('d-none')
+            dontEditProfileBtn.classList.toggle('d-block')
+            editProfileBtn.classList.toggle('d-none')
+            nameField.disabled = false
+            emailField.disabled = false
+            avatarField.disabled = false
+            saveBtn.disabled = false
+        })
+    }
+
+    if (dontEditProfileBtn) {
+        dontEditProfileBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            editProfileBtn.classList.toggle('d-none')
+            dontEditProfileBtn.classList.toggle('d-none')
+            dontEditProfileBtn.classList.toggle('d-block')
+            nameField.disabled = true
+            emailField.disabled = true
+            avatarField.disabled = true
+            saveBtn.disabled = true
+        })
+    }
+});

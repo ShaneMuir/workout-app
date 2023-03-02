@@ -42,6 +42,11 @@ Reasons why I decided to build my app.
 - User profile with avatar image and personal information 
 - Metrics around workouts 
 
+## Future Features
+
+- Indicators on workout titles to show if improve or not from previous same workout so if it was monday chest then next date i did chest should have an indicator to show if its improved from the previous workout.
+
+
 ## Setup 
 1. Clone the repository: `git clone [repository URL]`
 2. Install the necessary packages: ```composer install
