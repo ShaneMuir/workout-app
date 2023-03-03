@@ -56,6 +56,34 @@ Reasons why I decided to build my app.
 5. Start the development server: `php artisan serve`
 6. Visit http://localhost:8000 in your web browser to access the app.
 
+## Data
+
+I've created a seeder file so that you can inject some dummy workouts and exercises into the database
+assigned to your user you can find the file in `database/seeders/WorkoutsSeeder.php` if you replace the user ID on line 20
+to your user ID you can run the follow command to inject data.
+
+```php
+php artisan db:seed --class=WorksoutSeeder
+```
+If you refresh the homepage there should now be dummy workouts listed in your view.
+
+## Tests
+
+Since we are looking into testing our app in general at work I decided to dive into php unit tests and created some tests
+around the functionality of my app. Tests can be found in the `tests/` directory. 
+
+Tests are set up to use sqlite in memory db, so it can't impact anything on the live db.
+
+To run tests you can use the command 
+
+```php
+php artisan test
+```
+
+I've created a database factory for the Workout table when running tests
+they will use this to create mock entries in the db for testing. You can find my factories in the `database/factories` direcotry.
+
+
 ---
 
 # TODO List

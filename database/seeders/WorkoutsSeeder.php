@@ -17,7 +17,7 @@ class WorkoutsSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::find(1); // Replace 1 with the ID of a user in your database
+        $user = User::find(3); // Replace 1 with the ID of a user in your database
 
         // Create a new workout for the user
         $workoutOne = Workout::create([
