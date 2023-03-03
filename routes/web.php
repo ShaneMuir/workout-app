@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WorkoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,6 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+Route::get('/workouts/create', [WorkoutController::class, 'create'])->name('workouts.create');
+Route::post('/workouts/create', [WorkoutController::class, 'store'])->name('workouts.store');
+

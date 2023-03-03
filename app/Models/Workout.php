@@ -9,6 +9,21 @@ class Workout extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'title',
+        'date',
+        'user_id',
+    ];
+
+//    protected $attributes = [
+//        'date' => now()->toDateString(),
+//    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

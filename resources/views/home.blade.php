@@ -2,10 +2,28 @@
 
 @section('content')
 <div class="container">
+    @if(session('success'))
+        <div class="toast align-items-center show border-primary mb-4" role="alert" aria-live="polite" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <div class="alert alert-success text-primary">
+                        {{ session('success') }}Success
+                    </div>
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col">
-            @if(Auth::user()->name)
-            <h1 class="text-muted text-center mb-3">Workouts</h1>
+            @if(Auth::user())
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h1 class="text-muted text-center m-0">Workouts</h1>
+                    @if(Route::has('workouts.create'))
+                    <a class="btn btn-primary" href="{{ route('workouts.create') }}">Create Workout</a>
+                    @endif
+                </div>
+
             @endif
 
             @foreach ($workouts as $workout)

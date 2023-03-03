@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
             saveBtn.disabled = true
         })
     }
-});
+
 
 (() => {
     'use strict'
@@ -125,8 +125,71 @@ document.querySelectorAll('.collapse').forEach(collapse => {
     collapse.addEventListener('show.bs.collapse', () => {
         document.querySelectorAll('.collapse.show').forEach(show => {
             if (show !== collapse) {
-                show.classList.remove('show');
+                show.classList.remove('show')
             }
+        })
+    })
+})
+
+let exerciseCount = 1 // already got a set there with [0]
+const exercisesContainer = document.getElementById('exercisesContainer')
+const addExerciseBtn = document.querySelectorAll('.add-exercise')
+
+function addExercise() {
+    const exerciseMarkup = `
+      <div class="form-group row">
+        <div class="col">
+          <div class="d-flex align-items-center justify-content-between">
+            <label for="name-${exerciseCount}" class="col-form-label text-md-right">Exercise Name</label>
+            <a id="removeExercise-${exerciseCount}" href ><img src="/assets/remove.svg" width="16" height="16" alt="remove icon"></a>
+        </div>
+          <input id="name-${exerciseCount}" placeholder="Exercise Name" type="text" class="form-control" name="exercises[${exerciseCount}][name]" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label for="sets-${exerciseCount}" class="col-form-label text-md-right">Sets</label>
+          <input id="sets-${exerciseCount}" placeholder="Sets" type="number" min="1" class="form-control" name="exercises[${exerciseCount}][sets]" required>
+        </div>
+        <div class="col">
+          <label for="reps-${exerciseCount}" class="col-form-label text-md-right">Reps</label>
+          <input id="reps-${exerciseCount}" placeholder="Reps" type="number" min="1" class="form-control" name="exercises[${exerciseCount}][reps]" required>
+        </div>
+        <div class="col">
+          <label for="weight-${exerciseCount}" class="col-form-label text-md-right">Weight</label>
+          <input id="weight-${exerciseCount}" placeholder="Weight" type="number" min="0" step="0.01" class="form-control" name="exercises[${exerciseCount}][weight]" required>
+        </div>
+      </div>
+    `
+    const exerciseDiv = document.createElement('div')
+    exerciseDiv.classList.add('exercise-field-wrapper')
+    exerciseDiv.innerHTML = exerciseMarkup
+    exercisesContainer.appendChild(exerciseDiv)
+    exerciseCount++
+
+
+    const removeExerciseBtn = exerciseDiv.querySelector(`#removeExercise-${exerciseCount - 1}`)
+    removeExerciseBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        exerciseDiv.remove()
+        exerciseCount--
+    })
+}
+
+    if(addExerciseBtn) {
+        addExerciseBtn.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                addExercise();
+            });
         });
-    });
-});
+    }
+
+    const toast = document.querySelector('.toast')
+    if(toast) {
+        setTimeout(function() {
+            toast.classList.remove('show')
+        }, 5000)
+    }
+
+})
