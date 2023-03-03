@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,9 @@ class HomeController extends Controller
     public function index(): \Illuminate\Contracts\Support\Renderable
     {
         $user = auth()->user();
-        return view('home', ['user' => $user]);
+
+        // Fetch all the workouts associated with the user
+        $workouts = $user->workouts;
+        return view('home', ['user' => $user, 'workouts' => $workouts]);
     }
 }

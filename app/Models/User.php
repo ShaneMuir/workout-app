@@ -56,4 +56,13 @@ class User extends Authenticatable
         return asset('assets/hacker.png');
     }
 
+    /**
+     * Define relationship
+     * for workouts
+     */
+    public function workouts()
+    {
+        return $this->hasMany(Workout::class);
+    }
+
 }

@@ -120,3 +120,13 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', 'dark')
     })
 })()
+
+document.querySelectorAll('.collapse').forEach(collapse => {
+    collapse.addEventListener('show.bs.collapse', () => {
+        document.querySelectorAll('.collapse.show').forEach(show => {
+            if (show !== collapse) {
+                show.classList.remove('show');
+            }
+        });
+    });
+});

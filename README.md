@@ -66,10 +66,15 @@ Using Laravel UI auth - added user auth and added extra gravatar column to the u
 create a 1to1 relationship between a user and workout.
 
 Workout Schema: what is this going to look like
+- ID
 - Workout Title (Day / Workout [chest | back | legs | cardio])
+- Date
 - User ID
-- Exercise | Sets | Reps | Weight lifted
--
+- Exercises
+  - exercise title
+  - sets
+  - reps
+  - weight
 
 Workout tracking: What kind of workouts will users be able to track? Will they be able to input data such as sets, reps, and weights lifted? How will you store and retrieve this data?
 Started a workout schema above, will create a controller for storing and retrieving data.
