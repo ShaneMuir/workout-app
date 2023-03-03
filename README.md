@@ -1,7 +1,10 @@
 # Record My Workout App
+
 This is a web application that allows users to record their workouts at the gym. 
 Throughout this project I will make use of PHP along with [Laravel](https://laravel.com/) a PHP framework.
+
 ---
+
 ### About
 My workout app is a web app built to eliminate the use of pen and paper in the gym or 
 having to use notes on my phone which are not very intuitive for add exercises against workouts and 
@@ -10,7 +13,9 @@ something that is meaningful to me so that I can potentially stay inspired to fi
 used throughout the company I work for.
 
 ### User Stories
+
 Reasons why I decided to build my app.
+
 > As a gym goer I wanted a place to keep all my weekly workouts
 
 > Is there an app that can record my workouts and be able to look back to see improvements
@@ -28,11 +33,13 @@ Reasons why I decided to build my app.
 - MySQL 
 
 ### Frontend:
+
 - Vue.js (not used but is ready to implement...)
 - HTML/SCSS 
 - Bootstrap `v5.3`
 
 ## Features
+
 - User authentication with password reset functionality 
 - CRUD functionality for workouts 
 - Collapsible workouts 
@@ -48,6 +55,7 @@ Reasons why I decided to build my app.
 
 
 ## Setup 
+
 1. Clone the repository: `git clone [repository URL]`
 2. Install the necessary packages: ```composer install
    npm install```
@@ -87,6 +95,7 @@ they will use this to create mock entries in the db for testing. You can find my
 ---
 
 # TODO List
+
 Here are some things to consider:
 
 User authentication and registration: Will users need to create an account to use your app? How will you handle user authentication and authorization?
