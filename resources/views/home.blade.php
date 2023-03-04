@@ -7,7 +7,7 @@
             <div class="d-flex">
                 <div class="toast-body">
                     <div class="alert alert-success text-primary">
-                        {{ session('success') }}Success
+                        {{ session('success') }}
                     </div>
                 </div>
                 <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -28,17 +28,20 @@
 
             @foreach ($workouts as $workout)
                 <div class="card border m-1">
-                    <div class="card-header" id="heading-{{ $workout->id }}">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed d-flex justify-content-between w-100 align-items-center" type="button" data-bs-toggle="collapse"  data-bs-target="#workout-{{ $workout->id }}" aria-expanded="false" aria-controls="workout-{{ $workout->id }}">
-                                <span>
-                                    {{ date('M d', strtotime($workout->date)) }}
-                                </span>
-                                <span>
-                                    {{ $workout->title }}
-                                </span>
-                            </button>
-                        </h2>
+                    <div class="card-header d-flex align-items-center justify-content-between" id="heading-{{ $workout->id }}">
+                        <p class="ps-2 m-0">
+                            {{ date('M d', strtotime($workout->date)) }}
+                        </p>
+                        <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"  data-bs-target="#workout-{{ $workout->id }}" aria-expanded="false" aria-controls="workout-{{ $workout->id }}">
+                            <span>
+                                {{ $workout->title }}
+                            </span>
+                        </button>
+                        <span>
+                        <a class="btn btn-link" href="{{ route('workouts.edit', ['id' => $workout->id]) }}">
+                            <img src="{{ asset('assets/edit.svg') }}" width="16" height="16" alt="Edit icon">
+                        </a>
+                        </span>
                     </div>
 
                     <div id="workout-{{ $workout->id }}" class="collapse exercises-row" aria-labelledby="heading-{{ $workout->id }}" data-bs-parent="#heading-{{ $workout->id }}">
@@ -67,7 +70,6 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
 </div>

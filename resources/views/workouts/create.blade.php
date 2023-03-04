@@ -106,7 +106,7 @@
                                         <a class="add-exercise btn btn-primary">
                                             {{ __('Add Exercise') }}
                                         </a>
-                                        <button id="workoutSaveBtn" type="submit" class="btn btn-primary">
+                                        <button id="workoutEditBtn" type="submit" class="btn btn-primary">
                                             {{ __('Save Workout') }}
                                         </button>
                                     </div>

@@ -13,7 +13,7 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = auth()->user();
         return view('profile/profile', ['user' => $user]);

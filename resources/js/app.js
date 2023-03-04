@@ -143,21 +143,21 @@ function addExercise() {
             <label for="name-${exerciseCount}" class="col-form-label text-md-right">Exercise Name</label>
             <a id="removeExercise-${exerciseCount}" href ><img src="/assets/remove.svg" width="16" height="16" alt="remove icon"></a>
         </div>
-          <input id="name-${exerciseCount}" placeholder="Exercise Name" type="text" class="form-control" name="exercises[${exerciseCount}][name]" required>
+          <input id="name-${exerciseCount}" type="text" class="form-control" name="exercises[${exerciseCount}][name]" required>
         </div>
       </div>
       <div class="form-group row">
         <div class="col">
           <label for="sets-${exerciseCount}" class="col-form-label text-md-right">Sets</label>
-          <input id="sets-${exerciseCount}" placeholder="Sets" type="number" min="1" class="form-control" name="exercises[${exerciseCount}][sets]" required>
+          <input id="sets-${exerciseCount}" type="number" min="1" class="form-control" name="exercises[${exerciseCount}][sets]" required>
         </div>
         <div class="col">
           <label for="reps-${exerciseCount}" class="col-form-label text-md-right">Reps</label>
-          <input id="reps-${exerciseCount}" placeholder="Reps" type="number" min="1" class="form-control" name="exercises[${exerciseCount}][reps]" required>
+          <input id="reps-${exerciseCount}" type="number" min="1" class="form-control" name="exercises[${exerciseCount}][reps]" required>
         </div>
         <div class="col">
-          <label for="weight-${exerciseCount}" class="col-form-label text-md-right">Weight</label>
-          <input id="weight-${exerciseCount}" placeholder="Weight" type="number" min="0" step="0.01" class="form-control" name="exercises[${exerciseCount}][weight]" required>
+          <label for="weight-${exerciseCount}" class="col-form-label text-md-right">Weight (kg)</label>
+          <input id="weight-${exerciseCount}" type="number" min="0" step="0.01" class="form-control" name="exercises[${exerciseCount}][weight]" required>
         </div>
       </div>
     `

@@ -40,6 +40,48 @@ class WorkoutController extends Controller
             $workout->exercises()->save($exercise);
         }
 
-        return redirect('/')->with('success', 'Workout created successfully!');
+        return redirect()->route('home')->with('success', 'Workout created successfully!');
     }
+
+    public function edit($id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $workout = Workout::findOrFail($id);
+        $user = auth()->user();
+
+        return view('workouts.edit', compact('workout','user'));
+    }
+
+    public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
+    {
+        $workout = Workout::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'date' => 'required|date',
+            'exercises' => 'required|array|min:1',
+            'exercises.*.name' => 'required|max:255',
+            'exercises.*.sets' => 'required|integer|min:1',
+            'exercises.*.reps' => 'required|integer|min:1',
+            'exercises.*.weight' => 'required|numeric|min:0',
+        ]);
+
+        $workout->update([
+            'title' => $validatedData['title'],
+            'date' => $validatedData['date'],
+        ]);
+
+        $workout->exercises()->delete();
+
+        foreach ($validatedData['exercises'] as $exerciseData) {
+            $workout->exercises()->create([
+                'name' => $exerciseData['name'],
+                'sets' => $exerciseData['sets'],
+                'reps' => $exerciseData['reps'],
+                'weight' => $exerciseData['weight'],
+            ]);
+        }
+
+        return redirect()->route('home')->with('success', 'Workout updated successfully.');
+    }
+
 }

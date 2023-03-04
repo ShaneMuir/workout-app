@@ -15,7 +15,7 @@ class WorkoutsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $user = User::find(3); // Replace 1 with the ID of a user in your database
 
@@ -60,7 +60,7 @@ class WorkoutsSeeder extends Seeder
             'user_id' => $user->id,
         ]);
 
-// Add exercises to the workout
+        // Add exercises to the workout
         $workoutTwo->exercises()->createMany([
             [        'name' => 'Deadlifts',        'sets' => 3,        'reps' => 8,        'weight' => 225,    ],
             [        'name' => 'Pull-ups', 'sets' => 3,        'reps' => 10,        'weight' => null,    ],
