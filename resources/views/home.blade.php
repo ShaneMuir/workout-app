@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @if(session('success'))
-        <div class="toast align-items-center show border-primary mb-4" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="toast align-items-center show border-primary mb-4 m-auto" role="alert" aria-live="polite" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body">
                     <div class="alert alert-success text-primary">

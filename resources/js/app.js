@@ -157,7 +157,7 @@ function addExercise() {
         </div>
         <div class="col">
           <label for="weight-${exerciseCount}" class="col-form-label text-md-right">Weight (kg)</label>
-          <input id="weight-${exerciseCount}" type="number" min="0" step="0.01" class="form-control" name="exercises[${exerciseCount}][weight]" required>
+          <input id="weight-${exerciseCount}" type="number" min="0" step="0.01" class="form-control" name="exercises[${exerciseCount}][weight]">
         </div>
       </div>
     `
@@ -185,11 +185,11 @@ function addExercise() {
         });
     }
 
-    const toast = document.querySelector('.toast')
-    if(toast) {
-        setTimeout(function() {
-            toast.classList.remove('show')
-        }, 5000)
-    }
+    // const toast = document.querySelector('.toast')
+    // if(toast) {
+    //     setTimeout(function() {
+    //         toast.classList.remove('show')
+    //     }, 5000)
+    // }
 
 })

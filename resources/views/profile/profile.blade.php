@@ -28,10 +28,9 @@
                             @csrf
                             @method('PUT')
 
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                                <div class="col-md-6">
+                            <div class="form-group row justify-content-center">
+                                <div class="col">
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autocomplete="name" autofocus disabled>
 
                                     @error('name')
@@ -42,10 +41,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
-
-                                <div class="col-md-6">
+                            <div class="form-group row justify-content-center">
+                                <div class="col">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email" disabled>
 
                                     @error('email')
@@ -56,10 +54,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-
-                                <div class="col-md-6">
+                            <div class="form-group row justify-content-center">
+                                <div class="col">
+                                    <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
                                     <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" accept="image/*" disabled>
 
                                     @error('avatar')
@@ -71,7 +68,7 @@
                             </div>
 
                             <div class="form-group row mb-0 mt-3">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col">
                                     <button id="saveBtn" type="submit" class="btn btn-primary" disabled>
                                         {{ __('Save') }}
                                     </button>

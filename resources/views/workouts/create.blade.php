@@ -89,7 +89,7 @@
 
                                     <div class="col">
                                         <label for="weight" class="col-form-label text-md-right">{{ __('Weight (kg)') }}</label>
-                                        <input id="weight" placeholder="100" type="number" class="form-control @error('weight') is-invalid @enderror" name="exercises[0][weight]" required autocomplete="reps" autofocus>
+                                        <input id="weight" placeholder="100" type="number" class="form-control @error('weight') is-invalid @enderror" name="exercises[0][weight]" autocomplete="reps" autofocus>
 
                                         @error('reps')
                                         <span class="invalid-feedback" role="alert">
@@ -101,12 +101,12 @@
                             </div>
 
                             <div class="form-group row mb-0 mt-3">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <a class="add-exercise btn btn-primary">
                                             {{ __('Add Exercise') }}
                                         </a>
-                                        <button id="workoutEditBtn" type="submit" class="btn btn-primary">
+                                        <button id="workoutSaveBtn" type="submit" class="btn btn-primary">
                                             {{ __('Save Workout') }}
                                         </button>
                                     </div>

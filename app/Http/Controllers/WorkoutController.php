@@ -62,7 +62,7 @@ class WorkoutController extends Controller
             'exercises.*.name' => 'required|max:255',
             'exercises.*.sets' => 'required|integer|min:1',
             'exercises.*.reps' => 'required|integer|min:1',
-            'exercises.*.weight' => 'required|numeric|min:0',
+            'exercises.*.weight' => 'nullable|numeric|min:0',
         ]);
 
         $workout->update([

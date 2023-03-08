@@ -42,16 +42,17 @@ Reasons why I decided to build my app.
 
 - User authentication with password reset functionality 
 - CRUD functionality for workouts 
-- Collapsible workouts 
-- Timer functionality to record workout time 
-- Logic to highlight workout improvement 
-- Option to record rest days 
-- User profile with avatar image and personal information 
-- Metrics around workouts 
+- Collapsible workouts
+- User profile with avatar image and personal information
 
 ## Future Features
 
 - Indicators on workout titles to show if improve or not from previous same workout so if it was monday chest then next date i did chest should have an indicator to show if its improved from the previous workout.
+- Timer functionality to record workout time
+- Logic to highlight workout improvement
+- Option to record rest days
+- BMI in profile page + set personal goals
+- Click to view password (change password type to text and back)
 
 
 ## Setup 
@@ -91,45 +92,26 @@ php artisan test
 I've created a database factory for the Workout table when running tests
 they will use this to create mock entries in the db for testing. You can find my factories in the `database/factories` direcotry.
 
+## My DB Schema
 
----
+Workouts
 
-# TODO List
+| ID              | Title                               | Date                                     | User ID |
+|-----------------|-------------------------------------|------------------------------------------|---------|  
+| 1        | Chest Day           | 2023/01/25 | 1 |
 
-Here are some things to consider:
+Exercises
 
-User authentication and registration: Will users need to create an account to use your app? How will you handle user authentication and authorization?
-Using Laravel UI auth - added user auth and added extra gravatar column to the user table. Needed to create model and migrate for the workouts table and
-create a 1to1 relationship between a user and workout.
-
-Workout Schema: what is this going to look like
-- ID
-- Workout Title (Day / Workout [chest | back | legs | cardio])
-- Date
-- User ID
-- Exercises
-  - exercise title
-  - sets
-  - reps
-  - weight
-
-Workout tracking: What kind of workouts will users be able to track? Will they be able to input data such as sets, reps, and weights lifted? How will you store and retrieve this data?
-Started a workout schema above, will create a controller for storing and retrieving data.
-
-Goal tracking: Will users be able to set and track goals for themselves? How will you help users visualize their progress?
-- Future implementations:
-- Personal Goal Setting
-- Goal Tracking
-- BMI calculator
+| ID              | Workout ID | Name        | Sets | Reps | Weight (kg) |
+|-----------------|------------|-------------|------|------|-------------|  
+| 1               | 1          | Bench Press | 4    | 12   | 100         |
 
 ---
 
 ## Credits & Acknowledgments
 Credit is due to the following names. I would like to thank everyone who has helped or contributed to my project in any way. Please see list of names below:
 
-- [ChatGPT](https://openai.com/blog/chatgpt) - Kept me company through the long nights and cold days
 - [SVG Repo](https://www.svgrepo.com/) - Provided me with stylish SVG's
-
 
 ## Contributing
 Contributions are welcome! If you notice any bugs or have suggestions for new features, please open an issue or submit a pull request.

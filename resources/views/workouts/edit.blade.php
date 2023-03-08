@@ -94,7 +94,7 @@
 
                                         <div class="col">
                                             <label for="weight-{{ $key }}" class="col-form-label text-md-right">{{ __('Weight (kg)') }}</label>
-                                            <input id="weight-{{ $key }}" type="text" class="form-control @error('weight') is-invalid @enderror" name="exercises[{{ $key }}][weight]" value="{{ old('exercises.' . $key . '.weight', $exercise->weight) }}" required autocomplete="name" autofocus>
+                                            <input id="weight-{{ $key }}" type="text" class="form-control @error('weight') is-invalid @enderror" name="exercises[{{ $key }}][weight]" value="{{ old('exercises.' . $key . '.weight', $exercise->weight) }}" autocomplete="name" autofocus>
 
                                             @error('reps')
                                             <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                             </div>
 
                             <div class="form-group row mb-0 mt-3">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <a class="add-exercise btn btn-primary">
                                             {{ __('Add Exercise') }}
