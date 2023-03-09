@@ -1,17 +1,34 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 
 class UpdateProfileWithAvatarTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
+
+    protected function tearDown(): void
+    {
+        // grab the first user
+        $user = User::first();
+
+        // get the avatar path from the db
+        $avatarName = $user->avatar;
+
+        // delete the faked file that is created
+        if(File::exists(public_path('avatars/' . $avatarName))) {
+            File::delete(public_path('avatars/' . $avatarName));
+        }
+
+        parent::tearDown();
+    }
 
     public function testUpdateProfileWithAvatar()
     {
@@ -43,5 +60,4 @@ class UpdateProfileWithAvatarTest extends TestCase
         // assert that the avatar has been saved to the public directory
         $this->assertFileExists(public_path('avatars/' . $avatarName));
     }
-
 }

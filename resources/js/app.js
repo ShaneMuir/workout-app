@@ -185,11 +185,11 @@ function addExercise() {
         });
     }
 
-    // const toast = document.querySelector('.toast')
-    // if(toast) {
-    //     setTimeout(function() {
-    //         toast.classList.remove('show')
-    //     }, 5000)
-    // }
+    const toast = document.querySelector('.toast')
+    if(toast) {
+        setTimeout(function() {
+            toast.classList.remove('show')
+        }, 5000)
+    }
 
 })

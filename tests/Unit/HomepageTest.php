@@ -15,6 +15,18 @@ class HomepageTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
+    public function testIndexNeedsAuth()
+    {
+        // try the homepage
+        $response = $this->get(route('home'));
+
+        // check route is redirected
+        $response->assertStatus(302);
+
+        // assert redirected to login page
+        $response->assertRedirect('/login');
+    }
+
     public function testIndex()
     {
         // Create a new user and log them in

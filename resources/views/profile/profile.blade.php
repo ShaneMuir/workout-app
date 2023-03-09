@@ -2,18 +2,6 @@
 
 @section('content')
     <div class="container">
-        @if(session('success'))
-            <div class="toast align-items-center show border-primary mb-4" role="alert" aria-live="polite" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        <div class="alert alert-success text-primary">
-                            {{ session('success') }}
-                        </div>
-                    </div>
-                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
-        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
