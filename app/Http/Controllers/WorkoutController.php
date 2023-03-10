@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
+use App\Models\User;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 
 class WorkoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function create(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $user = auth()->user();
@@ -24,7 +31,7 @@ class WorkoutController extends Controller
             'exercises.*.name' => 'required|string|max:255',
             'exercises.*.sets' => 'required|integer|min:1',
             'exercises.*.reps' => 'required|integer|min:1',
-            'exercises.*.weight' => 'required|numeric|min:0',
+            'exercises.*.weight' => 'nullable|numeric|min:0',
         ];
 
         $validatedData = $request->validate($rules);
