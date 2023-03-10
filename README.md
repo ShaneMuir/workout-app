@@ -54,6 +54,11 @@ Reasons why I decided to build my app.
 - BMI in profile page + set personal goals
 - Click to view password (change password type to text and back)
 
+## Test User
+
+| Email         | Password   |
+|---------------|------------|
+| `test@test.com` | `testuser` |
 
 ## Setup 
 
@@ -72,7 +77,7 @@ assigned to your user you can find the file in `database/seeders/WorkoutsSeeder.
 to your user ID you can run the follow command to inject data.
 
 ```php
-php artisan db:seed --class=WorksoutSeeder
+php artisan db:seed --class=WorkoutsSeeder
 ```
 If you refresh the homepage there should now be dummy workouts listed in your view.
 
